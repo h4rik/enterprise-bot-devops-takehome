@@ -1,0 +1,27 @@
+replicaCount: 2
+
+image:
+  repository: eb-assessment-service
+  tag: review
+  pullPolicy: IfNotPresent
+
+config:
+  appName: enterprise_bot
+  version: 1.0.0
+
+service:
+  type: ClusterIP
+  port: 5000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: demo.local
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
